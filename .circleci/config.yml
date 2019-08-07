@@ -10,3 +10,27 @@ jobs:
           command: gradle test
       - store_test_results:
           path: /build/test-results
+   test:
+     docker:
+       - image: circleci/openjdk:8-jdk
+      steps:
+      - checkout:
+      -run:
+          name: gradle jar
+          command: gradle jar
+      - store_artifacts:
+          path: /code/test-results
+          destination: prefix
+workflows:
+   version: 2.0
+   feature_master:
+      jobs:
+         - test_feature:
+              filters:
+                 branches:
+                    only:
+                       - feature/*
+         - test_and_build_master:
+              filters:
+                 branches:
+                    only: master

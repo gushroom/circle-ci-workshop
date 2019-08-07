@@ -9,4 +9,4 @@ jobs:
           name: gradle test
           command: gradle test
       - store_test_results:
-          path: /tmp/test-results
+          path: /build/test-results

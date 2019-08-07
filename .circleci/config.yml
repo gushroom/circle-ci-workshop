@@ -25,12 +25,12 @@ workflows:
    version: 2.0
    feature_master:
       jobs:
-         - test_feature:
+         - build:
               filters:
                  branches:
                     only:
                        - feature/*
-         - test_and_build_master:
+         - test:
               filters:
                  branches:
                     only: master

@@ -1,28 +1,37 @@
-version: 2.0
-jobs:
-  build:
-    docker:
-      - image: circleci/openjdk:8-jdk
-    steps:
-      - checkout:
-      - run:
-          name: gradle test
-          command: gradle test
-      - store_test_results:
+--- 
+jobs: 
+  build: 
+    docker: 
+      - 
+        image: "circleci/openjdk:8-jdk"
+    steps: 
+      - 
+        checkout: ~
+      - 
+        run: 
+          command: "gradle test"
+          name: "gradle test"
+      - 
+        store_test_results: 
           path: /build/test-results
-    test:
-      docker:
-        - image: circleci/openjdk:8-jdk
-      steps:
-        - checkout:
-        - run:
-            name: gradle jar
-            command: gradle jar
-        - store_artifacts:
-            path: /code/test-results
+    test: 
+      docker: 
+        - 
+          image: "circleci/openjdk:8-jdk"
+      steps: 
+        - 
+          checkout: ~
+        - 
+          run: 
+            command: "gradle jar"
+            name: "gradle jar"
+        - 
+          store_artifacts: 
             destination: prefix
-workflows:
-  version: 2.0
-  jobs:
-      - build
-      - test
+            path: /code/test-results
+version: 2.0
+workflows: 
+  jobs: 
+    - build
+    - test
+

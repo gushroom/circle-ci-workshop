@@ -29,7 +29,6 @@ jobs:
           store_artifacts: 
             destination: prefix
             path: /code/test-results
-version: 2.0
 workflows: 
   jobs: 
     - build

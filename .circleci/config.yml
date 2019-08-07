@@ -23,7 +23,6 @@ jobs:
           destination: prefix
 workflows:
    version: 2.0
-   feature_master:
       jobs:
          - build
          - test
